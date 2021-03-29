@@ -16,7 +16,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding?.run {
-            ViewCompat.setTranslationZ(container, 2.toPx())
+            ViewCompat.setTranslationZ(container, 4.toPx())
             btnListCity.disableMultipleClick {
                 replaceFragment(ListCityFragment())
             }

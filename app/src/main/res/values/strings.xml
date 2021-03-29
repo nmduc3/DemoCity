@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DemoCity</string>
+    <string name="list_city">List City</string>
 </resources>

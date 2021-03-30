@@ -8,17 +8,23 @@ import com.example.democity.extension.activityInflate
 import com.example.democity.extension.disableMultipleClick
 import com.example.democity.extension.toPx
 import com.example.democity.listcity.ListCityFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    private val viewModel by viewModel<MainActivityViewModel>()
 
     override var inflater = activityInflate(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding?.run {
-            ViewCompat.setTranslationZ(container, 2.toPx())
+            ViewCompat.setTranslationZ(container, 4.toPx())
             btnListCity.disableMultipleClick {
                 replaceFragment(ListCityFragment())
+            }
+            btnClearCached.disableMultipleClick {
+                viewModel.clearCached()
             }
         }
     }

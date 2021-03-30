@@ -11,10 +11,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/list_city"
+        app:layout_constraintBottom_toTopOf="@id/btnClearCached"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnClearCached"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/clear_cached"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btnListCity" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"

@@ -10,8 +10,10 @@ import androidx.viewbinding.ViewBinding
 import com.example.democity.R
 
 
-abstract class BaseFragment<V : ViewBinding> : Fragment() {
+abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
     abstract val inflater: (LayoutInflater, ViewGroup?, Boolean) -> V?
+
+    abstract val viewModel: VM
 
     protected var binding: V? = null
 
@@ -36,6 +38,7 @@ abstract class BaseFragment<V : ViewBinding> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callBackWhenBackPress)
+        observeLiveData()
     }
 
     override fun onResume() {
@@ -53,11 +56,22 @@ abstract class BaseFragment<V : ViewBinding> : Fragment() {
         super.onDestroyView()
     }
 
+    open fun observeLiveData() {
+        viewModel.run {
+            progressLiveData().observe(viewLifecycleOwner) {
+                // TODO: 3/30/21
+            }
+            errorLiveData().observe(viewLifecycleOwner) {
+                // TODO: 3/30/21
+            }
+        }
+    }
+
     protected open fun handleBackPressed() {
         if (parentFragmentManager.backStackEntryCount > 0)
             parentFragmentManager.popBackStack()
         else {
-            (parentFragment as? BaseFragment<*>)?.handleBackPressed()
+            (parentFragment as? BaseFragment<*, *>)?.handleBackPressed()
         }
     }
 

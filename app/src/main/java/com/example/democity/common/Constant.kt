@@ -7,4 +7,8 @@ class Constant {
     object NetWork {
         const val TIME_OUT = 15L
     }
+
+    object Room {
+        const val DATABASE_NAME = "weather"
+    }
 }

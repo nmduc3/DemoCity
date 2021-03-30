@@ -1,6 +1,6 @@
 package com.example.democity.data.service
 
-import com.example.democity.data.response.SearchLocationItem
+import com.example.democity.data.model.SearchLocationItem
 import retrofit2.http.GET
 import retrofit2.http.Query
 

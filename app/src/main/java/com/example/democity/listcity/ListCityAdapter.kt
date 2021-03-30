@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.democity.R
-import com.example.democity.data.response.SearchLocationItem
+import com.example.democity.data.model.SearchLocationItem
 import com.example.democity.databinding.ItemCityBinding
 import com.example.democity.extension.inflate
 

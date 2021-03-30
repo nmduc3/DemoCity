@@ -2,4 +2,5 @@
     <string name="app_name">DemoCity</string>
     <string name="list_city">List City</string>
     <string name="empty_list">Empty List</string>
+    <string name="clear_cached">Clear Cached</string>
 </resources>

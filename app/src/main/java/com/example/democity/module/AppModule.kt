@@ -5,6 +5,7 @@ package com.example.democity.module
  */
 val appModule = listOf(
     networkModule,
+    roomModule,
     repositoryModule,
     viewModelModule
 )

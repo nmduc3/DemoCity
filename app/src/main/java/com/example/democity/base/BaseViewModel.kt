@@ -17,9 +17,9 @@ open class BaseViewModel : ViewModel() {
     private val progressLiveData = MutableLiveData<Boolean>()
     private val errorLiveData = MutableLiveData<Event<Unit>>()
 
-    internal fun progressLiveData(): LiveData<Boolean> = progressLiveData
+    internal val progressObserver: LiveData<Boolean> = progressLiveData
 
-    internal fun errorLiveData(): LiveData<Event<Unit>> = errorLiveData
+    internal val errorObserver: LiveData<Event<Unit>> = errorLiveData
 
     protected fun <T> callApi(
         function: suspend () -> ResultWrapper<T>?

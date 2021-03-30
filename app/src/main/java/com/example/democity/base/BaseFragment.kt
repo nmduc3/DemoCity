@@ -58,10 +58,10 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
 
     open fun observeLiveData() {
         viewModel.run {
-            progressLiveData().observe(viewLifecycleOwner) {
+            progressObserver.observe(viewLifecycleOwner) {
                 // TODO: 3/30/21
             }
-            errorLiveData().observe(viewLifecycleOwner) {
+            errorObserver.observe(viewLifecycleOwner) {
                 // TODO: 3/30/21
             }
         }

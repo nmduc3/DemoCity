@@ -9,5 +9,5 @@ import retrofit2.http.Query
  */
 interface ApiService {
     @GET("api/location/search/")
-    fun searchLocationByText(@Query("query") query: String): List<SearchLocationItem>
+    suspend fun searchLocationByText(@Query("query") query: String): List<SearchLocationItem>
 }

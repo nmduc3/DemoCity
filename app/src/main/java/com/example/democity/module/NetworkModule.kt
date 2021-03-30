@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
  * Created by nmduc3 on 3/30/21
  */
 val networkModule = module {
-
+    single { apiService() }
 }
 
 private fun apiService(): ApiService {

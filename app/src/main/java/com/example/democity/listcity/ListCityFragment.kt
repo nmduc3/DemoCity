@@ -7,6 +7,7 @@ import com.example.democity.base.BaseFragment
 import com.example.democity.common.EventObserver
 import com.example.democity.databinding.FragmentListCityBinding
 import com.example.democity.extension.fragmentInflate
+import com.example.democity.extension.showIf
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListCityFragment : BaseFragment<FragmentListCityBinding, ListCityViewModel>() {
@@ -28,6 +29,7 @@ class ListCityFragment : BaseFragment<FragmentListCityBinding, ListCityViewModel
         }
         viewModel.apply {
             resultObserver.observe(viewLifecycleOwner, EventObserver {
+                binding?.tvEmpty?.showIf(it.isNullOrEmpty())
                 adapter.submitList(it)
             })
         }

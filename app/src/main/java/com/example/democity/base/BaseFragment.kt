@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.example.democity.R
+import com.example.democity.extension.showIf
 
 
 abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
@@ -60,12 +62,16 @@ abstract class BaseFragment<V : ViewBinding, VM : BaseViewModel> : Fragment() {
     open fun observeLiveData() {
         viewModel.run {
             progressObserver.observe(viewLifecycleOwner) {
-                // TODO: 3/30/21
+                handleLoadingProgress(it)
             }
             errorObserver.observe(viewLifecycleOwner) {
                 handleError()
             }
         }
+    }
+
+    open fun handleLoadingProgress(isShow: Boolean) {
+        binding?.root?.findViewById<ProgressBar>(R.id.progressBar)?.showIf(isShow)
     }
 
     open fun handleError() {
